@@ -3,281 +3,768 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Professional portfolio website showcasing web development projects and skills">
-    <meta name="keywords" content="portfolio, web developer, designer, frontend, backend">
-    <meta name="author" content="Your Name">
-    <title>Portfolio - Your Name</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>">
+    <title>Ranisha Sarkar | Biomedical Engineering Student</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            background: #000000;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Particle System */
+        .particles-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .particle {
+            position: absolute;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .particle-1 {
+            width: 4px;
+            height: 4px;
+            background: #8a2be2;
+            box-shadow: 0 0 20px #8a2be2, 0 0 40px #8a2be2;
+            animation: float1 20s infinite ease-in-out;
+        }
+
+        .particle-2 {
+            width: 3px;
+            height: 3px;
+            background: #0064ff;
+            box-shadow: 0 0 15px #0064ff, 0 0 30px #0064ff;
+            animation: float2 18s infinite ease-in-out;
+        }
+
+        .particle-3 {
+            width: 5px;
+            height: 5px;
+            background: #ff00ff;
+            box-shadow: 0 0 25px #ff00ff, 0 0 50px #ff00ff;
+            animation: float3 22s infinite ease-in-out;
+        }
+
+        @keyframes float1 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translate(100px, -100vh) rotate(360deg); opacity: 0; }
+        }
+
+        @keyframes float2 {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.8; }
+            90% { opacity: 0.8; }
+            100% { transform: translate(-80px, -100vh) rotate(-360deg); opacity: 0; }
+        }
+
+        @keyframes float3 {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0; }
+            10% { opacity: 0.6; }
+            90% { opacity: 0.6; }
+            100% { transform: translate(60px, -100vh) scale(1.5); opacity: 0; }
+        }
+
+        /* Glowing Orbs Background */
+        .glow-orb {
+            position: fixed;
+            border-radius: 50%;
+            filter: blur(80px);
+            opacity: 0.3;
+            pointer-events: none;
+            z-index: 0;
+            animation: orbMove 20s infinite ease-in-out;
+        }
+
+        .orb-1 {
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, #8a2be2, transparent);
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, #0064ff, transparent);
+            top: 50%;
+            right: 10%;
+            animation-delay: 5s;
+        }
+
+        .orb-3 {
+            width: 350px;
+            height: 350px;
+            background: radial-gradient(circle, #ff00ff, transparent);
+            bottom: 10%;
+            left: 30%;
+            animation-delay: 10s;
+        }
+
+        @keyframes orbMove {
+            0%, 100% { transform: translate(0, 0) scale(1); }
+            33% { transform: translate(50px, -50px) scale(1.2); }
+            66% { transform: translate(-30px, 30px) scale(0.9); }
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 2rem;
+            z-index: 1;
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            max-width: 900px;
+        }
+
+        .glitch {
+            font-size: 5rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            background: linear-gradient(45deg, #8a2be2, #0064ff, #ff00ff, #8a2be2);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientFlow 4s ease infinite;
+            text-shadow: 0 0 80px rgba(138, 43, 226, 0.8);
+            filter: drop-shadow(0 0 20px #8a2be2) drop-shadow(0 0 40px #0064ff);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        @keyframes gradientFlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 1.8rem;
+            color: #b19cd9;
+            margin-bottom: 1.5rem;
+            animation: fadeInUp 1s ease 0.3s backwards;
+            font-weight: 300;
+            letter-spacing: 0.05em;
+            text-shadow: 0 0 30px rgba(138, 43, 226, 0.6);
+        }
+
+        .hero-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #a0a0a0;
+            margin-bottom: 3rem;
+            animation: fadeInUp 1s ease 0.5s backwards;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .cta-container {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.7s backwards;
+        }
+
+        .btn {
+            padding: 1.2rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: 0.05em;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #8a2be2, #0064ff);
+            color: white;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.8), 0 0 80px rgba(0, 100, 255, 0.4);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+        }
+
+        .btn-primary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s;
+        }
+
+        .btn-primary:hover::before {
+            left: 100%;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 60px rgba(138, 43, 226, 1), 0 0 100px rgba(0, 100, 255, 0.6), 0 20px 50px rgba(138, 43, 226, 0.5);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #8a2be2;
+            border: 2px solid #8a2be2;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.5), inset 0 0 20px rgba(138, 43, 226, 0.1);
+        }
+
+        .btn-secondary:hover {
+            background: linear-gradient(135deg, #8a2be2, #0064ff);
+            color: white;
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 0 60px rgba(138, 43, 226, 1), 0 0 100px rgba(0, 100, 255, 0.6);
+        }
+
+        /* Section Styling */
+        section {
+            padding: 6rem 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 4rem;
+            background: linear-gradient(45deg, #8a2be2, #0064ff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+            letter-spacing: 0.05em;
+            position: relative;
+            filter: drop-shadow(0 0 30px rgba(138, 43, 226, 0.8));
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #8a2be2, #0064ff, #ff00ff);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+            box-shadow: 0 0 40px rgba(138, 43, 226, 1), 0 0 80px rgba(0, 100, 255, 0.6);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 0 40px rgba(138, 43, 226, 1), 0 0 80px rgba(0, 100, 255, 0.6); }
+            50% { box-shadow: 0 0 60px rgba(138, 43, 226, 1), 0 0 120px rgba(0, 100, 255, 0.8); }
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text {
+            line-height: 1.9;
+            font-size: 1.15rem;
+            color: #c0c0c0;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .about-visual {
+            height: 450px;
+            background: linear-gradient(135deg, rgba(138, 43, 226, 0.3), rgba(0, 100, 255, 0.3));
+            border-radius: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(138, 43, 226, 0.6);
+            box-shadow: 0 0 60px rgba(138, 43, 226, 0.8), 0 0 100px rgba(0, 100, 255, 0.4), inset 0 0 80px rgba(138, 43, 226, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .about-visual:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 80px rgba(138, 43, 226, 1), 0 0 140px rgba(0, 100, 255, 0.6), inset 0 0 100px rgba(138, 43, 226, 0.3);
+        }
+
+        .about-visual::before {
+            content: '🔬';
+            font-size: 8rem;
+            animation: pulse 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        /* Card Styling */
+        .card {
+            background: rgba(138, 43, 226, 0.1);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            border-radius: 25px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(138, 43, 226, 0.4), 0 0 80px rgba(0, 100, 255, 0.2), inset 0 0 40px rgba(138, 43, 226, 0.1);
+        }
+
+        .card:hover {
+            transform: translateY(-15px);
+            border-color: #8a2be2;
+            box-shadow: 0 0 80px rgba(138, 43, 226, 0.9), 0 0 140px rgba(0, 100, 255, 0.5), inset 0 0 60px rgba(138, 43, 226, 0.2);
+        }
+
+        .card h3 {
+            color: #8a2be2;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.8);
+        }
+
+        .card p {
+            color: #b0b0b0;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* Grid Layouts */
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        /* Learning Cards */
+        .learning-card {
+            background: rgba(138, 43, 226, 0.1);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.4s ease;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4), inset 0 0 30px rgba(138, 43, 226, 0.1);
+        }
+
+        .learning-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(138, 43, 226, 0.4) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .learning-card:hover::before {
+            opacity: 1;
+        }
+
+        .learning-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            border-color: #0064ff;
+            box-shadow: 0 0 60px rgba(0, 100, 255, 0.8), 0 0 100px rgba(138, 43, 226, 0.5), inset 0 0 50px rgba(0, 100, 255, 0.2);
+        }
+
+        .learning-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
+        }
+
+        .learning-card h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+        }
+
+        .learning-card p {
+            color: #a0a0a0;
+            line-height: 1.6;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .skill-badge {
+            background: linear-gradient(135deg, #8a2be2, #0064ff);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.6), 0 0 60px rgba(0, 100, 255, 0.3);
+            position: relative;
+            overflow: hidden;
+            border: 2px solid rgba(138, 43, 226, 0.5);
+        }
+
+        .skill-badge::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.5s, height 0.5s;
+        }
+
+        .skill-badge:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .skill-badge:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0 60px rgba(138, 43, 226, 1), 0 0 100px rgba(0, 100, 255, 0.6);
+        }
+
+        /* Interest Cards */
+        .interest-card {
+            background: rgba(138, 43, 226, 0.1);
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            border-radius: 20px;
+            padding: 2.5rem;
+            text-align: center;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.4), inset 0 0 30px rgba(138, 43, 226, 0.1);
+        }
+
+        .interest-card:hover {
+            transform: scale(1.1) rotate(2deg);
+            border-color: #0064ff;
+            box-shadow: 0 0 60px rgba(0, 100, 255, 0.8), 0 0 100px rgba(138, 43, 226, 0.5), inset 0 0 50px rgba(0, 100, 255, 0.2);
+        }
+
+        .interest-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            animation: bounce 2s ease-in-out infinite;
+            filter: drop-shadow(0 0 20px rgba(138, 43, 226, 0.8));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .interest-card:hover .interest-icon {
+            animation: spin 0.6s ease-in-out;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .interest-card h3 {
+            color: #ffffff;
+            font-size: 1.4rem;
+            font-weight: 600;
+            text-shadow: 0 0 20px rgba(138, 43, 226, 0.6);
+        }
+
+        /* Focus Section */
+        .focus-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .focus-item {
+            background: rgba(138, 43, 226, 0.1);
+            border-left: 4px solid #8a2be2;
+            padding: 2rem;
+            border-radius: 15px;
+            font-size: 1.2rem;
+            color: #e0e0e0;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 30px rgba(138, 43, 226, 0.3), inset 0 0 20px rgba(138, 43, 226, 0.1);
+        }
+
+        .focus-item:hover {
+            transform: translateX(10px);
+            border-left-color: #0064ff;
+            box-shadow: 0 0 50px rgba(0, 100, 255, 0.6), inset 0 0 40px rgba(0, 100, 255, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: rgba(138, 43, 226, 0.1);
+            border-radius: 30px;
+            padding: 5rem 2rem;
+            text-align: center;
+            border: 2px solid rgba(138, 43, 226, 0.5);
+            box-shadow: 0 0 60px rgba(138, 43, 226, 0.5), 0 0 100px rgba(0, 100, 255, 0.3), inset 0 0 60px rgba(138, 43, 226, 0.1);
+        }
+
+        .contact-email {
+            font-size: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .contact-email a {
+            color: #8a2be2;
+            text-decoration: none;
+            border-bottom: 2px solid #8a2be2;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            text-shadow: 0 0 10px rgba(138, 43, 226, 0.6);
+        }
+
+        .contact-email a:hover {
+            background: linear-gradient(135deg, #8a2be2, #0064ff);
+            color: white;
+            border-bottom-color: transparent;
+            box-shadow: 0 0 50px rgba(138, 43, 226, 0.8), 0 0 80px rgba(0, 100, 255, 0.5);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .glitch {
+                font-size: 3rem;
+            }
+
+            .hero-subtitle {
+                font-size: 1.3rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .cta-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h3>Your Name</h3>
-            </div>
-            <ul class="nav-menu">
-                <li class="nav-item">
-                    <a href="#home" class="nav-link">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#about" class="nav-link">About</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#skills" class="nav-link">Skills</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#projects" class="nav-link">Projects</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#contact" class="nav-link">Contact</a>
-                </li>
-            </ul>
-            <div class="nav-toggle" id="mobile-menu">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+    <!-- Glowing Orbs -->
+    <div class="glow-orb orb-1"></div>
+    <div class="glow-orb orb-2"></div>
+    <div class="glow-orb orb-3"></div>
+
+    <!-- Particle System -->
+    <div class="particles-container" id="particlesContainer"></div>
+
+    <div class="hero">
+        <div class="hero-content">
+            <h1 class="glitch">Ranisha Sarkar</h1>
+            <div class="hero-subtitle">Biomedical Engineering Student</div>
+            <p class="hero-description">First-year student at Adamas University passionate about the intersection of healthcare, technology, and data. Exploring medical devices, basic programming, and healthcare innovation through coursework and self-learning.</p>
+            <div class="cta-container">
+                <a href="#contact" class="btn btn-primary">Get in Touch</a>
+                <a href="#about" class="btn btn-secondary">Explore My Journey</a>
             </div>
         </div>
-    </nav>
+    </div>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <h1 class="hero-title">Hi, I'm <span class="highlight">Your Name</span></h1>
-                <p class="hero-subtitle">Web Developer & Designer</p>
-                <p class="hero-description">
-                    I create beautiful, responsive websites and applications that deliver exceptional user experiences.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                    <a href="#contact" class="btn btn-secondary">Contact Me</a>
-                </div>
-            </div>
-            <div class="hero-image">
-                <div class="profile-placeholder">
-                    <i class="fas fa-user"></i>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
+            <h2>About Me</h2>
+            <div class="about-grid">
                 <div class="about-text">
-                    <p>
-                        I'm a passionate web developer with expertise in modern web technologies. 
-                        I love creating clean, efficient, and user-friendly applications that solve real-world problems.
-                    </p>
-                    <p>
-                        With a strong foundation in both frontend and backend development, I bring ideas to life 
-                        through code and design. I'm always eager to learn new technologies and take on challenging projects.
-                    </p>
-                    <div class="about-info">
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>your.email@example.com</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Your Location</span>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-graduation-cap"></i>
-                            <span>Your Education</span>
-                        </div>
-                    </div>
+                    <p>I am a 1st year Biomedical Engineering student at Adamas University, currently learning the basics of engineering, biology, and programming.</p>
+                    <p>I am exploring the biomedical field to understand where my interests lie and to build skills step by step. My journey is just beginning, and I'm excited to discover the possibilities at the intersection of medicine and technology.</p>
+                    <p>Every day brings new challenges and learning opportunities as I work towards making a meaningful impact in healthcare innovation.</p>
+                </div>
+                <div class="about-visual"></div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Education</h2>
+            <div class="card">
+                <h3>B.Tech in Biomedical Engineering</h3>
+                <p><strong>Adamas University</strong></p>
+                <p>1st Year Undergraduate Student</p>
+                <p>Currently building a strong foundation in engineering principles, biological sciences, and technology applications in healthcare.</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>What I'm Learning</h2>
+            <div class="grid-4">
+                <div class="learning-card">
+                    <span class="learning-icon">🫀</span>
+                    <h3>Human Anatomy & Physiology</h3>
+                    <p>Understanding the fundamentals of the human body and biological systems</p>
+                </div>
+                <div class="learning-card">
+                    <span class="learning-icon">⚡</span>
+                    <h3>Biomedical Engineering</h3>
+                    <p>Core principles and applications in medical technology</p>
+                </div>
+                <div class="learning-card">
+                    <span class="learning-icon">💻</span>
+                    <h3>Programming</h3>
+                    <p>Python & C basics for technical problem-solving</p>
+                </div>
+                <div class="learning-card">
+                    <span class="learning-icon">📐</span>
+                    <h3>Engineering Mathematics</h3>
+                    <p>Building mathematical foundations for engineering</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
+    <section>
         <div class="container">
-            <h2 class="section-title">Skills & Technologies</h2>
+            <h2>Skills</h2>
             <div class="skills-grid">
-                <div class="skill-card">
-                    <i class="fab fa-html5"></i>
-                    <h3>HTML5</h3>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 90%"></div>
-                    </div>
+                <div class="skill-badge">Python (Basic)</div>
+                <div class="skill-badge">MS Excel / Google Sheets</div>
+                <div class="skill-badge">Problem Solving</div>
+                <div class="skill-badge">Research & Learning</div>
+                <div class="skill-badge">Analytical Thinking</div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <h2>Interests</h2>
+            <div class="grid-4">
+                <div class="interest-card">
+                    <span class="interest-icon">⚕️</span>
+                    <h3>Healthcare Technology</h3>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-css3-alt"></i>
-                    <h3>CSS3</h3>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 85%"></div>
-                    </div>
+                <div class="interest-card">
+                    <span class="interest-icon">🔧</span>
+                    <h3>Medical Devices</h3>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-js"></i>
-                    <h3>JavaScript</h3>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 80%"></div>
-                    </div>
+                <div class="interest-card">
+                    <span class="interest-icon">💡</span>
+                    <h3>Engineering in Medicine</h3>
                 </div>
-                <div class="skill-card">
-                    <i class="fab fa-react"></i>
-                    <h3>React</h3>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 75%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fab fa-node-js"></i>
-                    <h3>Node.js</h3>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 70%"></div>
-                    </div>
-                </div>
-                <div class="skill-card">
-                    <i class="fas fa-database"></i>
-                    <h3>Database</h3>
-                    <div class="skill-bar">
-                        <div class="skill-level" style="width: 65%"></div>
-                    </div>
+                <div class="interest-card">
+                    <span class="interest-icon">📊</span>
+                    <h3>Healthcare Data</h3>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
+    <section>
         <div class="container">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-code"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Project One</h3>
-                        <p>A modern web application built with React and Node.js featuring real-time data synchronization.</p>
-                        <div class="project-tech">
-                            <span>React</span>
-                            <span>Node.js</span>
-                            <span>MongoDB</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
+            <h2>Current Focus</h2>
+            <div class="focus-list">
+                <div class="focus-item">
+                    📖 Understanding core biomedical subjects and engineering fundamentals
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-mobile-alt"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Project Two</h3>
-                        <p>A responsive mobile-first design with beautiful animations and intuitive user interface.</p>
-                        <div class="project-tech">
-                            <span>HTML5</span>
-                            <span>CSS3</span>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
+                <div class="focus-item">
+                    💻 Improving programming basics and technical skills
                 </div>
-                <div class="project-card">
-                    <div class="project-image">
-                        <div class="project-placeholder">
-                            <i class="fas fa-shopping-cart"></i>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Project Three</h3>
-                        <p>An e-commerce platform with secure payment integration and inventory management system.</p>
-                        <div class="project-tech">
-                            <span>Vue.js</span>
-                            <span>Express</span>
-                            <span>PostgreSQL</span>
-                        </div>
-                        <div class="project-links">
-                            <a href="#" class="btn btn-small">View Demo</a>
-                            <a href="#" class="btn btn-small btn-outline">GitHub</a>
-                        </div>
-                    </div>
+                <div class="focus-item">
+                    🚀 Exploring beginner-friendly projects in biomedical engineering
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
+    <section id="contact">
         <div class="container">
-            <h2 class="section-title">Get In Touch</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <p>I'm always interested in hearing about new projects and opportunities.</p>
-                    <div class="contact-details">
-                        <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <span>ranishasarkar76@gmail.com</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+91 Fuck off</span>
-                        </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Kolkata,India</span>
-                        </div>
-                    </div>
-                    <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <div class="form-group">
-                            <input type="text" id="name" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" id="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
+            <div class="contact-section">
+                <h2>Let's Connect</h2>
+                <p style="color: #b0b0b0; font-size: 1.2rem; margin-bottom: 2rem;">I'm always excited to connect with fellow students, professionals, and anyone interested in biomedical engineering!</p>
+                <div class="contact-email">
+                    <a href="mailto:ranishasarkar76@gmail.com">ranishasarkar76@gmail.com</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 Your Name. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
-</body>
-</html>
+    <script>
+        // Generate particles dynamically
+        const particlesContainer = document.getElementById('particlesContainer');
+        const particleTypes = ['particle-1', 'particle-2', 'particle-3'];
+        
+        for (let i = 0; i < 50; i++) {
+            const particle = document.createElement('div');
